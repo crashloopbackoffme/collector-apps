@@ -1,0 +1,12 @@
+- name: Run Commands via SSH
+  # You may pin to the exact commit or the version.
+  # uses: Flaavius/ssh-commands@79ae027ae651731b483988ee69b2f628c75422f1
+  uses: Flaavius/ssh-commands@1.0
+  with:
+    # Command to run on the remote server
+    command: "touch ~/testing.txt"
+    host: ${{ secrets.BASTION_HOSTNAME }}
+    username: ec2-user
+    port: 22
+    # File Location or string that contains a private key for either key-based or hostbased user authentication (OpenSSH format)
+    privateKey: ${{ secrets.BASTION_PEM }}
